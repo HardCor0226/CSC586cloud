@@ -1,7 +1,7 @@
 #!/bin/bash
 sudo apt-get install geoip-bin > /dev/null
 array=()
-grep "Invalid user" /var/log/auth.log >> holding.log
+grep sshd "Invalid user" /var/log/auth.log >> holding.log
 readarray array < holding.log
 ip=""
 country=""
