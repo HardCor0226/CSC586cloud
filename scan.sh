@@ -10,6 +10,6 @@ for i in "${array[@]}"; do
         ip="$(grep -oE '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' <<< "$i")"
         country="$(geoiplookup -s $ip)"
         date=$(echo "$i" | cut -c1-15)
-        echo "$ip ""$country ""$date" >> /var/webserver_log/unauthorized.log
+        echo $ip, $country, $date >> /var/webserver_log/unauthorized.log
 done
 sudo rm holding.log
