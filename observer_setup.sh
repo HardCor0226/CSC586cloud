@@ -9,4 +9,4 @@ sudo chown nobody:nogroup /var/webserver_monitor
 
 sudo mount 192.168.1.1:/var/webserver_log /var/webserver_monitor
 cd /var/webserver_monitor
-sudo touch observer_1
+sudo touch unauthorized.log
