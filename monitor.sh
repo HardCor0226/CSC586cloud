@@ -1,5 +1,5 @@
 #!/bin/bash
-sudo apt-get install ssmpt > /dev/null
+sudo apt-get install msmtp > /dev/null
 sudo apt-get install mailutils > /dev/null
 NOW=$(date | cut -c1-13)
 hrAgo=$(date -d "1 hours ago" | cut -c1-13)
@@ -9,4 +9,4 @@ if [ "$hrAgo" == "$lTime" ]; then
 else
         contents=$(sudo sed -n '/"$hrAgo"/,/"$NOW"/p' /var/webserver_monitor/unauthorized.log)
 fi
-echo "Please check the attachment" | mail -s "Unauthorized.log Update" CS800943@wcupa.edu -A "$contents"
+echo "Please check the attachment" | mail -s "Unauthorized.log Update" CS800943@wcupa.edu <<< "$contents"
