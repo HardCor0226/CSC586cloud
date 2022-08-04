@@ -5,7 +5,7 @@ NOW=$(date | cut -c1-13)
 hrAgo=$(date -d "1 hours ago" | cut -c1-13)
 lTime=$(date -r /var/webserver_monitor/unauthorized.log | cut -c1-17)
 if [ "$hrAgo" == "$lTime" ]; then
-        contents="No unauthorized attempts."
+        contents="No unauthorized access."
 else
         contents=$(sudo sed -n '/"$hrAgo"/,/"$NOW"/p' /var/webserver_monitor/unauthorized.log)
 fi
